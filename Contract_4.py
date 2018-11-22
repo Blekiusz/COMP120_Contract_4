@@ -1,10 +1,4 @@
-"""
-Tinkering Audio - Contract 4.
-
-by:
-Konrad Kowalewski - Driver
-Joachim Rayski - Navigator and Occasional Driver
-"""
+"""Tinkering Audio - Contract 4."""
 import wave
 import struct
 import math
@@ -19,7 +13,7 @@ pygame.display.set_mode((200, 200))
 class UIAudioGenerator:
     """Class for a whole script."""
 
-    output_filenames = ["start_game.wav", "options.wav", "quit.wav"]
+    output_file_name = ["start_game.wav", "options.wav", "quit.wav"]
     sound_characteristic = ["positive", "neutral", "negative"]
     length_of_file_in_seconds = [0.5, 0.2, 0.8]
 
@@ -39,8 +33,8 @@ class UIAudioGenerator:
 
         :return: No return.
         """
-        for i in range(len(self.output_filenames)):
-            sound_output = wave.open(self.output_filenames[i], 'w')
+        for i in range(len(self.output_file_name)):
+            sound_output = wave.open(self.output_file_name[i], 'w')
 
             sample_length = int(self.SAMPLE_RATE *
                                 self.length_of_file_in_seconds[i]
@@ -138,9 +132,9 @@ class UIAudioGenerator:
 
 UIAudioGenerator.sound_preparation(UIAudioGenerator)
 
-sound = pygame.mixer.Sound(UIAudioGenerator.output_filenames[0])
-sound1 = pygame.mixer.Sound(UIAudioGenerator.output_filenames[1])
-sound2 = pygame.mixer.Sound(UIAudioGenerator.output_filenames[2])
+sound = pygame.mixer.Sound(UIAudioGenerator.output_file_name[0])
+sound1 = pygame.mixer.Sound(UIAudioGenerator.output_file_name[1])
+sound2 = pygame.mixer.Sound(UIAudioGenerator.output_file_name[2])
 
 
 def main():
